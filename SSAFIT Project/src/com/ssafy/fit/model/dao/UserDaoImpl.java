@@ -43,12 +43,10 @@ public class UserDaoImpl implements UserDao {
     public boolean signin(String id, String name, String passowrd, String email) {
         for (User user : list) {
             if (user.getId().equals(id)) {
-                System.out.println("이미 존재하는 id입니다.");
                 return false;
             }
         }
         list.add(new User(id, name, passowrd, email));
-        System.out.println("회원가입 되었습니다.");
         return true;
     }
 
@@ -57,15 +55,12 @@ public class UserDaoImpl implements UserDao {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getId().equals(id)) {
                 if (list.get(i).getPassword().equals(password)) {
-                    System.out.println("회원탈퇴 되었습니다.");
                     return true;
                 } else {
-                    System.out.println("비밀번호가 틀렸습니다. 회원탈퇴 할 수 없습니다.");
                     return false;
                 }
             }
         }
-        System.out.println("존재하지 않는 id입니다. 회원탈퇴 할 수 없습니다.");
         return false;
     }
 
@@ -74,16 +69,13 @@ public class UserDaoImpl implements UserDao {
         for (int i = 0; i < list.size(); i++) {
             if (list.get(i).getId().equals(id)) {
                 if (list.get(i).getPassword().equals(password)) {
-                    System.out.println("로그인 되었습니다.");
                     loginUserInfo = list.get(i);
                     return true;
                 } else {
-                    System.out.println("비밀번호가 틀렸습니다. 로그인 할 수 없습니다.");
                     return false;
                 }
             }
         }
-        System.out.println("존재하지 않는 id입니다. 로그인 할 수 없습니다.");
         return false;
     }
 
@@ -91,20 +83,16 @@ public class UserDaoImpl implements UserDao {
     public boolean logout() {
         if (loginUserInfo != null) {
             loginUserInfo = null;
-            System.out.println("로그아웃 되었습니다.");
             return true;
         }
-        System.out.println("이미 로그아웃 상태입니다.");
         return false;
     }
 
     @Override
     public User getLoginUserInfo() {
         if (loginUserInfo != null) {
-            System.out.printf("현재 로그인 중인유저는 %s입니다.", loginUserInfo.getId());
             return loginUserInfo;
         }
-        System.out.println("로그아웃 상태입니다.");
         return null;
     }
 

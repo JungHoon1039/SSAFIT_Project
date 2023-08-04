@@ -10,13 +10,14 @@ public class SsafitUtil {
 
     public static String input(String msg) {
         System.out.print(msg);
-        String input = sc.next();
+        String input = sc.nextLine();
         return input;
     }
 
     public static int inputInt(String msg) {
         System.out.print(msg);
         int input = sc.nextInt();
+        sc.nextLine();
         return input;
     }
 
