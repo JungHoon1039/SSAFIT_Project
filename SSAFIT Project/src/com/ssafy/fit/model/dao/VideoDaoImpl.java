@@ -11,42 +11,44 @@ import com.google.gson.Gson;
 import com.ssafy.fit.model.Video;
 
 public class VideoDaoImpl implements VideoDao {
-	private List<Video> list = new ArrayList<>();
+    private List<Video> list = new ArrayList<>();
 
-	private VideoDaoImpl() {
-		try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("data/video.json")))) {
-			StringBuilder sb = new StringBuilder();
-			String str = null;
-			while ((str = br.readLine()) != null) {
-				sb.append(str).append("\n");
-			}
-			Gson gson = new Gson();
-			Video[] arr = gson.fromJson(sb.toString(), Video[].class);
-			list = new ArrayList<>(Arrays.asList(arr));
-		} catch (Exception e) {
-			System.out.println("파일 읽기 실패");
-			e.printStackTrace();
-		}
-	}
+    private VideoDaoImpl() {
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(new FileInputStream("data/video.json")))) {
+            StringBuilder sb = new StringBuilder();
+            String str = null;
+            while ((str = br.readLine()) != null) {
+                sb.append(str).append("\n");
+            }
+            Gson gson = new Gson();
+            Video[] arr = gson.fromJson(sb.toString(), Video[].class);
+            if (arr != null) {
+                list = new ArrayList<>(Arrays.asList(arr));
+            }
+        } catch (Exception e) {
+            System.out.println("파일 읽기 실패");
+            e.printStackTrace();
+        }
+    }
 
-	private static VideoDaoImpl instance = new VideoDaoImpl();
+    private static VideoDaoImpl instance = new VideoDaoImpl();
 
-	public static VideoDaoImpl getInstance() {
-		return instance;
-	}
+    public static VideoDaoImpl getInstance() {
+        return instance;
+    }
 
-	@Override
-	public List<Video> selectVideo() {
-		return list;
-	}
+    @Override
+    public List<Video> selectVideo() {
+        return list;
+    }
 
-	@Override
-	public Video selectVideoByNo(int no) {
-		for (Video v : list) {
-			if (v.getNo() == no) {
-				return v;
-			}
-		}
-		return null;
-	}
+    @Override
+    public Video selectVideoByNo(int no) {
+        for (Video v : list) {
+            if (v.getNo() == no) {
+                return v;
+            }
+        }
+        return null;
+    }
 }

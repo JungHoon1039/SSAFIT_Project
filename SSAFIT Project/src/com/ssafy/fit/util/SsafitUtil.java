@@ -3,34 +3,37 @@ package com.ssafy.fit.util;
 import java.util.Scanner;
 
 public class SsafitUtil {
-	private static Scanner sc = new Scanner(System.in);
-	private SsafitUtil ssafitUtil = new SsafitUtil();
+    private static Scanner sc = new Scanner(System.in);
 
-	public static String input(String msg) {
-		System.out.print(msg);
-		String input = sc.next();
-		return input;
-	}
+    public SsafitUtil() {
+    }
 
-	public static int inputInt(String msg) {
-		System.out.print(msg);
-		int input = sc.nextInt();
-		return input;
-	}
+    public static String input(String msg) {
+        System.out.print(msg);
+        String input = sc.next();
+        return input;
+    }
 
-	public static void printLine() {
-		System.out.println("--------------------------------------------------");
-	}
+    public static int inputInt(String msg) {
+        System.out.print(msg);
+        int input = sc.nextInt();
+        return input;
+    }
 
-	public static void printLine(char ch) {
-		System.out.println(ch);
-	}
+    public static void printLine() {
+        System.out.println("--------------------------------------------------");
+    }
 
-	public static void printLine(char ch, int len) {
-	}
+    public static void printLine(char ch) {
+        System.out.println(ch);
+    }
 
-	public static void screenClear() {
+    public static void printLine(char ch, int len) {
+    }
 
-	}
+    public static void screenClear() {
+        System.out.print("\033[H\033[2J");
+        System.out.flush();
+    }
 
 }
