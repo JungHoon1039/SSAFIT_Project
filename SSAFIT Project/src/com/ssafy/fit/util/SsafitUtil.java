@@ -29,11 +29,13 @@ public class SsafitUtil {
     }
 
     public static void printLine(char ch, int len) {
+        for (int i = 0; i < len; i++) {
+            System.out.println(ch);
+        }
     }
 
     public static void screenClear() {
-        System.out.print("\033[H\033[2J");
-        System.out.flush();
+        printLine(' ', 50);
     }
 
 }
