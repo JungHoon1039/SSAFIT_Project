@@ -1,6 +1,7 @@
 package com.ssafy.fit.ui;
 
 import com.ssafy.fit.model.Video;
+import com.ssafy.fit.model.dao.UserDaoImpl;
 import com.ssafy.fit.model.dao.VideoDao;
 import com.ssafy.fit.model.dao.VideoDaoImpl;
 import com.ssafy.fit.util.SsafitUtil;
@@ -20,12 +21,13 @@ public class VideoUi {
 	public static void service() {
 		SsafitUtil.printLine();
 		System.out.println("1. 영상 목록");
-		System.out.println("0. 이전으로");
+		System.out.println("2. 로그아웃");
 		SsafitUtil.printLine();
 		int mainPage = SsafitUtil.inputInt("메뉴를 선택하세요 : ");
 		if (mainPage == 1) {
 			listVideo();
-		} else if (mainPage == 0) {
+		} else if (mainPage == 2) {
+			UserDaoImpl.getInstance().logout();
 			MainUi.service();
 		}
 	}

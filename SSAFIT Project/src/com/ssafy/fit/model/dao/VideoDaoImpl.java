@@ -22,7 +22,7 @@ public class VideoDaoImpl implements VideoDao {
 			}
 			Gson gson = new Gson();
 			Video[] arr = gson.fromJson(sb.toString(), Video[].class);
-			list = Arrays.asList(arr);
+			list = new ArrayList<>(Arrays.asList(arr));
 		} catch (Exception e) {
 			System.out.println("파일 읽기 실패");
 			e.printStackTrace();

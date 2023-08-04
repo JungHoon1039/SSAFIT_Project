@@ -3,6 +3,7 @@ package com.ssafy.fit.ui;
 import java.util.List;
 
 import com.ssafy.fit.model.VideoReview;
+import com.ssafy.fit.model.dao.UserDaoImpl;
 import com.ssafy.fit.model.dao.VideoReviewDao;
 import com.ssafy.fit.model.dao.VideoReviewDaoImpl;
 import com.ssafy.fit.util.SsafitUtil;
@@ -47,9 +48,9 @@ public class VideoReviewUi {
 	}
 
 	public static void registReview() {
-		String nickName = SsafitUtil.input("닉네임을 입력하세요 : ");
 		String content = SsafitUtil.input("내용을 입력하세요 : ");
-		VideoReview videoReview = new VideoReview(videoNo, 0, nickName, content);
+		VideoReview videoReview = new VideoReview(videoNo, 0, UserDaoImpl.getInstance().getLoginUserInfo().getName(),
+				content);
 		videoReviewDao.insertReview(videoReview);
 		service();
 	}

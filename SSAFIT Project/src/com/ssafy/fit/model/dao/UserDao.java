@@ -13,7 +13,7 @@ public interface UserDao {
 
 	public abstract boolean logout();
 
-	public abstract String getLoginUserInfo();
+	public abstract User getLoginUserInfo();
 
 	public abstract List<User> getUserList();
 }
