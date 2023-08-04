@@ -8,7 +8,7 @@ import java.util.Map;
 import com.ssafy.fit.model.VideoReview;
 
 public class VideoReviewDaoImpl implements VideoReviewDao {
-	private int reviewNo;
+	private int reviewNo = 0;
 	private Map<Integer, List<VideoReview>> videoReviewDb = new HashMap<>();
 
 	private VideoReviewDaoImpl() {
@@ -22,6 +22,7 @@ public class VideoReviewDaoImpl implements VideoReviewDao {
 
 	@Override
 	public int insertReview(VideoReview videoReview) {
+		videoReview.setReviewNo(++reviewNo);
 		int key = videoReview.getVideoNo();
 		videoReviewDb.putIfAbsent(key, new ArrayList<>());
 		videoReviewDb.get(key).add(videoReview);
@@ -30,7 +31,11 @@ public class VideoReviewDaoImpl implements VideoReviewDao {
 
 	@Override
 	public List<VideoReview> selectReview(int videoNo) {
-		return videoReviewDb.get(videoNo);
+		if (videoReviewDb.containsKey(videoNo)) {
+			return videoReviewDb.get(videoNo);
+		}
+		return new ArrayList<>();
+
 	}
 
 }
