@@ -56,16 +56,15 @@ public class ReviewController extends HttpServlet {
 
     private void doReviewInsert(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        String youtubeId = request.getParameter("youtubeId");
-        HttpSession session = request.getSession();
-        if (session.getAttribute("loginUser") != null) {
-            ReviewDaoImpl ri = ReviewDaoImpl.getInstance();
-            int userSeq = ((User) session.getAttribute("loginUser")).getUserSeq();
-            String content = request.getParameter("content");
-            Review review = new Review(youtubeId, userSeq, content);
-            ri.insertReview(review);
-        }
-        response.sendRedirect(request.getContextPath() + "/main.jsp");
+    	
+    	String youtubeId = request.getParameter("youtubeId ");
+    	String nickName = request.getParameter("nickName");
+    	String content = request.getParameter("content");
+    	Review review = new Review(youtubeId, nickName, content);
+    	ReviewDaoImpl ri = ReviewDaoImpl.getInstance();
+    	ri.insertReview(review);
+    	
+        response.sendRedirect(request.getContextPath() + "/detail.jsp");
     }
 
     private void doReviewDelete(HttpServletRequest request, HttpServletResponse response)

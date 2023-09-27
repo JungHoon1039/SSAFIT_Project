@@ -7,18 +7,18 @@ import com.ssafy.board.model.dao.ReviewDaoImpl;
 public class Review {
     private int reviewId;
     private String youtubeId;
-    private int userSeq;
     private String content;
     private Date regDate;
+    private String nickName;
 
     public Review() {
     }
 
-    public Review(String youtubeId, int userSeq, String content) {
+    public Review(String youtubeId, String nickName,String content) {
         this.reviewId = ReviewDaoImpl.getInstance().selectReviewAll(youtubeId).size() + 1;
         this.youtubeId = youtubeId;
-        this.userSeq = userSeq;
         this.content = content;
+        this.nickName= nickName;
         this.regDate = new Date();
     }
 
@@ -38,13 +38,6 @@ public class Review {
         this.youtubeId = youtubeId;
     }
 
-    public int getUserSeq() {
-        return userSeq;
-    }
-
-    public void setUserSeq(int userSeq) {
-        this.userSeq = userSeq;
-    }
 
     public String getContent() {
         return content;
@@ -62,10 +55,11 @@ public class Review {
         this.regDate = regDate;
     }
 
-    @Override
-    public String toString() {
-        return "Review [reviewId=" + reviewId + ", youtubeId=" + youtubeId + ", userSeq=" + userSeq + ", content="
-                + content + ", regDate=" + regDate + "]";
-    }
+	@Override
+	public String toString() {
+		return "Review [reviewId=" + reviewId + ", youtubeId=" + youtubeId + ", content=" + content + ", regDate="
+				+ regDate + ", nickName=" + nickName + "]";
+	}
+
 
 }
