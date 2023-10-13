@@ -1,0 +1,109 @@
+CREATE DATABASE IF NOT EXISTS SSAFIT_DB;
+USE SSAFIT_DB;
+
+DROP TABLE IF EXISTS `video`;
+
+CREATE TABLE `video` (
+	`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `youtubeId` varchar(256) NOT NULL UNIQUE,
+    `title` varchar(256) NOT NULL,
+    `part` varchar(40) NOT NULL,
+    `channelName` varchar(256) NOT NULL,
+    `url` varchar(256) NOT NULL,
+    `view_cnt` int NOT NULL DEFAULT 0
+)ENGINE=InnoDB;
+
+INSERT INTO `video` (youtubeId, title, part, channelName, url) 
+VALUES
+("gMaB-fG4u4g", "전신 다이어트 최고의 운동 [칼소폭 찐 핵핵매운맛]", "전신", "ThankyouBUBU", "https://www.youtube.com/embed/gMaB-fG4u4g"),
+("swRNeYw1JkY", "하루 15분! 전신 칼로리 불태우는 다이어트 운동", "전신", "ThankyouBUBU", "https://www.youtube.com/embed/swRNeYw1JkY"),
+("54tTYO-vU2E", "상체 다이어트 최고의 운동 BEST [팔뚝살/겨드랑이살/등살/가슴어깨라인]", "상체", "ThankyouBUBU", "https://www.youtube.com/embed/54tTYO-vU2E"),
+("QqqZH3j_vH0", "상체비만 다이어트 최고의 운동 [상체 핵매운맛]", "상체", "ThankyouBUBU","https://www.youtube.com/embed/QqqZH3j_vH0"),
+("tzN6ypk6Sps", "하체운동이 중요한 이유? 이것만 보고 따라하자 ! [하체운동 교과서]", "하체", "김강민","https://www.youtube.com/embed/tzN6ypk6Sps"),
+("u5OgcZdNbMo", "저는 하체 식주의자 입니다", "하체", "GYM종국","https://www.youtube.com/embed/u5OgcZdNbMo"),
+("PjGcOP-TQPE", "11자복근 복부 최고의 운동 [복근 핵매운맛]", "복부", "ThankyouBUBU","https://www.youtube.com/embed/PjGcOP-TQPE"),
+("7TLk7pscICk", "(Sub)누워서하는 5분 복부운동!! 효과보장! (매일 2주만 해보세요!)", "복부", "SomiFit","https://www.youtube.com/embed/7TLk7pscICk");
+
+SELECT * FROM video;
+
+DROP TABLE IF EXISTS `user`;
+
+CREATE TABLE `user` (
+	`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `user_id` varchar(256) NOT NULL UNIQUE,
+    `password` varchar(256) NOT NULL,
+    `name` varchar(40) NOT NULL
+)ENGINE=InnoDB;
+
+INSERT INTO `user` (user_id, password, name) 
+VALUES
+('ssafy', '1234','김싸피'),
+('CaptainAmerica', '5678','스티브 로저스'),
+('Hulk', '2486','브루스 배너'),
+('Ironman', '1234','토니 스타크');
+
+SELECT * FROM user;
+
+DROP TABLE IF EXISTS `article`;
+
+CREATE TABLE `article` (
+	`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `youtubeId` varchar(40) NOT NULL,
+    `title` varchar(256) NOT NULL,
+    `content` text NOT NULL,
+    `writer` varchar(40) NOT NULL,
+    `view_cnt` int NOT NULL DEFAULT 0,
+    `reg_date` DATETIME NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	CONSTRAINT `fk_youtubeId` FOREIGN KEY (`youtubeId`)
+	REFERENCES `video` (`youtubeId`),
+	CONSTRAINT `fk_writer` FOREIGN KEY (`writer`)
+	REFERENCES `user` (`user_id`)
+)ENGINE=InnoDB;
+
+INSERT INTO `article` (youtubeId, title, content, writer) 
+VALUES
+("gMaB-fG4u4g", "너무 재미있었습니다!", "이렇게 재밌는 영상은 처음봐요", "CaptainAmerica"),
+("swRNeYw1JkY", "도움이 많이 되었어요!", "운동이 즐겁네요", "Hulk"),
+("54tTYO-vU2E", "다이어트 성공!", "이 영상 덕분에 다이어트에 성공했어요!!", "Ironman");
+
+SELECT * FROM article;
+
+DROP TABLE IF EXISTS `bookmark`;
+
+CREATE TABLE `bookmark` (
+	`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `user_id` varchar(256) NOT NULL,
+    `youtubeId` varchar(40) NOT NULL,
+	CONSTRAINT `fk_bookmark_id` FOREIGN KEY (`youtubeId`)
+	REFERENCES `video` (`youtubeId`),
+	CONSTRAINT `fk_user_id` FOREIGN KEY (`user_id`)
+	REFERENCES `user` (`user_id`)
+)ENGINE=InnoDB;
+
+INSERT INTO `bookmark` (user_id, youtubeId) 
+VALUES
+("CaptainAmerica", "gMaB-fG4u4g"),
+("CaptainAmerica", "swRNeYw1JkY"),
+("Ironman", "54tTYO-vU2E");
+
+SELECT * FROM bookmark;
+
+DROP TABLE IF EXISTS `follow`;
+
+CREATE TABLE `follow` (
+	`id` int NOT NULL AUTO_INCREMENT PRIMARY KEY,
+    `user_id` varchar(256) NOT NULL,
+    `follow_id` varchar(256) NOT NULL,
+	CONSTRAINT `fk_follow_id` FOREIGN KEY (`user_id`)
+	REFERENCES `user` (`user_id`),
+	CONSTRAINT `fk_follower_id` FOREIGN KEY (`follow_id`)
+	REFERENCES `user` (`user_id`)
+)ENGINE=InnoDB;
+
+INSERT INTO `follow` (user_id, follow_id) 
+VALUES
+("CaptainAmerica", "Ironman"),
+("Ironman", "CaptainAmerica"),
+("ssafy", "Ironman");
+
+SELECT * FROM follow;
