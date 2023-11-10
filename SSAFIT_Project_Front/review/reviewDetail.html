@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+    <title>SSAFIT - 리뷰 상세</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar shadow navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" id="page-name" href="../main/main.html">SSAFIT</a>
+                <div class="justify-end d-flex" id="navbarScroll">
+                <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                    <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/main/main.html">HOME</a>
+                    </li>
+    
+                    <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        사용자
+                    </a>
+                    <ul class="dropdown-menu">
+                        <li><a class="dropdown-item" href="/user/likeList.html">찜</a></li>
+                        <li><a class="dropdown-item" href="/user/follow.html">팔로우</a></li>
+                    </ul>
+                    </li>
+                    <li class="nav-item">
+                    <a class="nav-link" href="/user/login.html">로그아웃</a>
+                    </li>
+                </ul>
+                </div>
+            </div>
+            </nav>
+    </header>
+    <div class="container">
+        <div class="shadow pt-5 pb-5 m-5 bg-light rounded" style="width: 80%;">
+            <form class="reviewform" style="width: 80%; margin: auto;">
+                
+                <div class="text-center">
+                    <span class="material-symbols-outlined">dialogs</span>
+                    <h2 class="d-inline mb-3 fs-4 fw-semibold">운동영상 리뷰 상세</h2>
+                    <span class="material-symbols-outlined">dialogs</span>
+                </div>
+                
+                <hr class="mb-3">
+                
+                <div class="d-flex justify-content-between">
+                    <button type="button" onclick="location.href='reviewList.html'" class="w-20 me-2 btn btn-outline-primary">목록</button>
+                    <div class="d-flex">
+                        <button type="button" onclick="location.href='reviewEdit.html'" class="float-end w-20 me-2 btn btn-outline-primary">글 수정</button>
+                        <button type="button" onclick="location.href='reviewList.html'" class="float-end w-20 btn btn-outline-danger">글 삭제</button>
+                    </div>
+                </div>
+    
+                <div class="shadow-sm mb-3 text-center border p-4 mt-3">
+                    <div class="p-2">
+                        <h3 class="fs-5 fw-medium">와~효과만점 운동 영상입니다.</h3>
+                        <div>작성자: a</div>
+                        <div>작성일: 2022-01-05 01:32:37</div>
+                        <div>조회수: 1</div>
+                    </div>
+                    <hr>
+                    <div class="p-2">
+                        <div>강추!! 강추!!</div>
+                    </div>
+                </div>
+    
+            
+            </form>
+        </div>
+    </div>
+
+</body>
+
+</html>

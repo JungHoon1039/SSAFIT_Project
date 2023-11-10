@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/main.css" />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm"
+        crossorigin="anonymous"></script>
+    <title>SSAFIT - 찜한 동영상</title>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar shadow navbar-expand-lg bg-body-tertiary">
+            <div class="container-fluid">
+                <a class="navbar-brand" id="page-name" href="/main/main.html">SSAFIT</a>
+                <div class="justify-end d-flex" id="navbarScroll">
+                    <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href="/main/main.html">HOME</a>
+                        </li>
+
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                                aria-expanded="false">
+                                사용자
+                            </a>
+                            <ul class="dropdown-menu">
+                                <li><a class="dropdown-item" href="/user/likeList.html">찜</a></li>
+                                <li><a class="dropdown-item" href="/user/follow.html">팔로우</a></li>
+                            </ul>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="/user/login.html">로그아웃</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="mt-5 d-flex bg-body-tertiary justify-content-center">
+        <div class="d-flex justify-content-around" style="width: 40%; height: 100%;">
+            <div class=" pt-3 pb-3">
+                회원정보수정
+            </div>
+            <div onclick="location.href='/user/likeList.html'" class="fw-bold pt-3 pb-3" style="cursor: pointer; color: #58599f; border-bottom: solid 3px;">
+                찜영상
+            </div>
+            <div onclick="location.href='/review/reviewList.html'" class=" pt-3 pb-3" style="cursor: pointer;">
+                내가쓴리뷰
+            </div>
+            <div onclick="location.href='/user/follow.html'" style="cursor: pointer;" class=" pt-3 pb-3">
+                팔로우
+            </div>
+        </div>
+    </div>
+
+
+    <div class="container">
+        <div class="video-box">
+            <div class="pe-3 ps-3 pt-4 pb-4 d-flex video-list w-100 justify-content-around">
+                <div onclick="location.href='/review/reviewDetail.html'" style="cursor: pointer; width: 30%;">
+                    <div class="shadow rounded text-wrap pb-1">
+                        <div>
+                            <img class="rounded-top"
+                                src="https://i.ytimg.com/vi/7TLk7pscICk/hqdefault.jpg?sqp=-oaymwEcCPYBEIoBSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLA7JquqWF2VtxSIpS7_aAyJ1f9AbA">
+                        </div>
+                        <div class="m-3">
+                            <div class="mt-1 mb-1 d-flex text-wrap fw-bold" style="line-height: 200%;">(Sub)누워서하는 5분
+                                복부운동!! 효과보장! (매일 2주만 해보세요!) | SomiFit</div>
+                        </div>
+                        <div class="d-flex pe-3 justify-content-end" style="margin-bottom: 20px;">
+                            <div style="cursor: pointer; background-color: rgb(80, 0, 186);"
+                                class="fw-normal ps-3 pe-3 pt-2 pb-2 me-2 rounded-pill text-white shadow-sm w-auto">
+                                보기
+                            </div>
+                            <div style="cursor: pointer; background-color: red;"
+                                class="fw-normal ps-3 pe-3 pt-2 pb-2 me-2 rounded-pill shadow-sm text-white w-auto">
+                                삭제
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div onclick="location.href='/review/reviewDetail.html'" style="cursor: pointer; width: 30%;">
+                    <div class="shadow rounded text-wrap pb-1">
+                        <div>
+                            <img class="rounded-top"
+                                src="https://i.ytimg.com/vi/54tTYO-vU2E/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLDxWlfWshc8D0IBhLDgV_oy_9u31A">
+                        </div>
+                        <div class="m-3">
+                            <div class="mt-1 mb-1 d-flex text-wrap fw-bold" style="line-height: 200%;">상체 다이어트 최고의 운동
+                                BEST [팔뚝살/겨드랑이살/등살/가슴어깨라인] | ThankyouBUBU</div>
+                        </div>
+                        <div class="d-flex pe-3 justify-content-end" style="margin-bottom: 20px;">
+                            <div style="cursor: pointer; background-color: rgb(80, 0, 186);"
+                                class="fw-normal ps-3 pe-3 pt-2 pb-2 me-2 rounded-pill text-white shadow-sm w-auto">
+                                보기
+                            </div>
+                            <div style="cursor: pointer; background-color: red;"
+                                class="fw-normal ps-3 pe-3 pt-2 pb-2 me-2 rounded-pill shadow-sm text-white w-auto">
+                                삭제
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div onclick="location.href='/review/reviewDetail.html'" style="cursor: pointer; width: 30%;">
+                    <div class="shadow rounded text-wrap pb-1">
+                        <div>
+                            <img class="rounded-top"
+                                src="https://i.ytimg.com/vi/PjGcOP-TQPE/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLC2EPwTCFD11Xc1Fj4B-FMAv0aBZQ">
+                        </div>
+                        <div class="m-3">
+                            <div class="mt-1 mb-1 d-flex text-wrap fw-bold" style="line-height: 200%;">11자복근 복부 최고의 운동
+                                [복근 핵매운맛] | ThankyouBUBU</div>
+                        </div>
+                        <div class="d-flex pe-3 justify-content-end" style="margin-bottom: 20px;">
+                            <div style="cursor: pointer; background-color: rgb(157, 0, 255);"
+                                class="fw-normal ps-3 pe-3 pt-2 pb-2 me-2 rounded-pill text-white shadow-sm w-auto">
+                                보기
+                            </div>
+                            <div style="cursor: pointer; background-color: rgb(255, 51, 0);"
+                                class="fw-normal ps-3 pe-3 pt-2 pb-2 me-2 rounded-pill shadow-sm text-white w-auto">
+                                삭제
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>
