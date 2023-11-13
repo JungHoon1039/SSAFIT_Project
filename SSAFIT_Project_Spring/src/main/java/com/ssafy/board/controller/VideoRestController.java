@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -22,6 +23,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 
 @RestController
+@CrossOrigin("*")
 @RequestMapping("/ssafit")
 @Api(tags = "게시판 컨트롤러")
 public class VideoRestController {
@@ -70,6 +72,7 @@ public class VideoRestController {
     @ApiOperation(value = "댓글 수정", notes = "특정 댓글 하나를 수정한다")
     public ResponseEntity<?> reviewUpdate(Review review) {
         int result = videoService.reviewModify(review);
+        System.out.println(review.toString());
         if (result == 0) {
             return new ResponseEntity<Integer>(result, HttpStatus.INTERNAL_SERVER_ERROR);
         }
